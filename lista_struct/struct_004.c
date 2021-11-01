@@ -6,7 +6,7 @@ disciplina (matrícula, nome, sobrenome, nota). O programa devera informar o mel
 estudante, o pior estudante e a media da turma. Considere n um valor informado pelo usuário.
 */
 
-typedef struct {
+typedef struct{
     int matricula;
     float nota;
     char nome[20], sobrenome[30];
@@ -31,7 +31,7 @@ int main(void)
     {
         printf("\nAluno %d\n", i+1);
         printf("Digite o numero de matricula: ");
-        scanf("%d", &(alunos[i].matricula));
+        scanf("%d", &alunos[i].matricula);
         printf("Digite o nome: ");
         scanf(" %[^\n]", alunos[i].nome);
         printf("Digite o sobrenome: ");
@@ -46,11 +46,11 @@ int main(void)
 
         media += alunos[i].nota;
     }
-
     media /= n;
     printf("\nMelhor aluno: %s %s\n", alunos[melhor].nome, alunos[melhor].sobrenome);
     printf("Pior aluno: %s %s\n", alunos[pior].nome, alunos[pior].sobrenome);
     printf("Media da turma: %.2f\n", media);
+
     free(alunos);
     return 0;
 }
