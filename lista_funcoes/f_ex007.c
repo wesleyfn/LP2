@@ -1,14 +1,13 @@
 #include <stdio.h>
-
-int perfeito(int);
+#include "bib_funcoes.h"
 
 int main(void)
 {
     int i, j, flag;
 
-    for (i = 0; i < __INT64_MAX__; i++)
+    for (i = 0; i < 101; i++)
     {
-        flag = perfeito(i);
+        flag = isPerfeito(i);
         if (flag)
         {
             printf("Perfeito: %d = ", i);
@@ -18,15 +17,4 @@ int main(void)
         }
     }
     return 0;
-}
-
-int perfeito(int num)
-{
-    int i, acumulo;
-    if (num != 0){
-        acumulo = 0;
-        for (i = num; i > 1; i--)
-            if (num%i == 0) acumulo += num/i;
-    }
-    return acumulo == num ? 1 : 0;
 }
