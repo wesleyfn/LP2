@@ -6,7 +6,7 @@ determine se o segundo e múltiplo do primeiro. Escreva uma função
 Multiplo que receba dois números inteiros e retorne 1 se o segundo for
 múltiplo do primeiro ou 0 em caso contrário.
 */
-int Multiplo(int, int);
+int mult(int, int);
 
 typedef struct{
     int a, b, multiplo;
@@ -32,7 +32,7 @@ int main(void)
         scanf("%d", &dupla[i].a);
         printf("B: ");
         scanf("%d", &dupla[i].b);
-        dupla[i].multiplo = Multiplo(dupla[i].a, dupla[i].b);
+        dupla[i].multiplo = mult(dupla[i].a, dupla[i].b);
     }
     
     for (i = 0; i < n; i++)
@@ -46,7 +46,7 @@ int main(void)
     return 0;
 }
 
-int Multiplo(int a, int b)
+int mult(int a, int b)
 {
     if (b == 0) 
         return 0;

@@ -2,7 +2,7 @@
 int isPerfeito(int num)
 {
     int i, acumulo;
-    if (num != 0){
+    if (num > 0) {
         acumulo = 0;
         for (i = num; i > 1; i--)
             if (num%i == 0) acumulo += num/i;

@@ -15,9 +15,10 @@ int main(void)
     scanf("%d", &base);
     printf("Digite o valor do expoente: ");
     scanf("%d", &exp);
+    printf("%d^(%d) = ", base, exp);
 
-    printf("%d^%d", base, exp);
-    printf(" = %d\n", PotenciaInt(base, exp));
+    if (exp < 0) printf("1/");
+    printf("%d\n", PotenciaInt(base, exp));
     return 0;
 }
 
@@ -25,6 +26,7 @@ int PotenciaInt(int base, int exp)
 {
     int i, result;
 
+    if (exp < 0) exp *= -1;
     result = 1;
     for (i = 0; i < exp; i++)
         result *= base;
