@@ -9,11 +9,9 @@ int main(void)
     FILE *file;
     time_t timer;
 
-    if ((file = fopen("arq04.txt", "a")) == NULL){
-        if ((file = fopen("arq04.txt", "w")) == NULL){
-            puts("Erro ao criar o arquivo!");
-            return -1;
-        }
+    if ((file = fopen("arq04.txt", "a+")) == NULL){
+        puts("Erro ao criar o arquivo!");
+        return -1;
     }
 
     for ( ; ; )

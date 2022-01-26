@@ -4,51 +4,47 @@
 
 int main(void)
 {
-    int i, maq;
+    int n_maq;
     char data_quant[20];
-    FILE *file[QFILE];
+    FILE *fmain, *fmaq1, *fmaq2, *fmaq3;
 
-    if ((file[0] = fopen("arq07.txt", "r")) == NULL){
+    if ((fmain = fopen("arq07.txt", "r")) == NULL){
         puts("Erro ao ler o arquivo!");
         return -1;
     }
-    if ((file[1] = fopen("arq07-1.txt", "w")) == NULL){
-        puts("Erro ao criar o arquivo!");
-        return -1;
-    }
-    if ((file[2] = fopen("arq07-2.txt", "w")) == NULL){
-        puts("Erro ao criar o arquivo!");
-        return -1;
-    }
-    if ((file[3] = fopen("arq07-3.txt", "w")) == NULL){
+    if (((fmaq1 = fopen("arq07-1.txt", "w")) == NULL) || 
+        ((fmaq2 = fopen("arq07-2.txt", "w")) == NULL) ||
+        ((fmaq3 = fopen("arq07-3.txt", "w")) == NULL)){
         puts("Erro ao criar o arquivo!");
         return -1;
     }
 
-    for ( ; !feof(file[0]) ; )
+    for ( ; !feof(fmain) ; )
     {
-        fscanf(file[0], "%d  ", &maq);
-        fgets(data_quant, 20, file[0]);
+        fscanf(fmain, "%d  ", &n_maq);
+        fgets(data_quant, 20, fmain);
 
-        switch (maq)
+        switch (n_maq)
         {
         case 1:
-            fprintf(file[1], "%s", data_quant);
+            fprintf(fmaq1, "%s", data_quant);
             break;
         case 2:
-            fprintf(file[2], "%s", data_quant);
+            fprintf(fmaq2, "%s", data_quant);
             break;
         case 3:
-            fprintf(file[3], "%s", data_quant);
+            fprintf(fmaq3, "%s", data_quant);
             break;                    
         default:
             break;
         }   
     }
 
-    for (i = 0; i < QFILE; i++)
-       fclose(file[i]);
-
+    fclose(fmain);
+    fclose(fmaq1);
+    fclose(fmaq2);
+    fclose(fmaq3);
+    puts("Programa finalizado!");
     return 0;
 }
 
